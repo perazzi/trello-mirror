@@ -1,14 +1,26 @@
-var http = require('http');
+var express = require('express');
+var app = express();
 
-// Configure our HTTP server to respond with Hello World to all requests.
-var server = http.createServer(function (request, response) {
-console.log("WOOOOOPA")
-  response.writeHead(200, {"Content-Type": "text/plain"});
-  response.end("Hello World\n");
+
+var bodyParser = require('body-parser')
+app.use( bodyParser.json() );       
+app.use(bodyParser.urlencoded({  
+  extended: true
+})); 
+
+
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
 });
 
-// Listen on port 8000, IP defaults to 127.0.0.1
-server.listen(8000);
 
-// Put a friendly message on the terminal
-console.log("Server running at port 8000/");
+app.post('/card/change',function(req,res){
+	console.log(req.body)
+})
+
+
+var port = 8000;
+app.listen(port, function () {
+  console.log('Example app listening on port: '+port);
+});
