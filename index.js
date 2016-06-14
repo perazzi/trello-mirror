@@ -19,7 +19,7 @@ app.post('/card/change',function(req,res){
 	console.log(req.body)
 })
 
-app.get('/card/change',function(req,res){
+app.head('/card/change',function(req,res){
 	res.status(200).end()
 })
 
