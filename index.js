@@ -17,6 +17,12 @@ app.get('/', function (req, res) {
 
 app.post('/card/change',function(req,res){
 	console.log(req.body)
+
+
+	console.log(req.body.action.type)
+
+
+
 })
 
 app.head('/card/change',function(req,res){
